@@ -2,7 +2,7 @@
 $server     = "localhost";
 $username   = "root";
 $password   = "";
-$dbname     = "dbspirited1";
+$dbname     = "dbspirited";
 $tablelog   = "register";
 $tablelogin = "adminlogin";
 
