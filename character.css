@@ -1,0 +1,78 @@
+/* ============================================
+   character.css — Spirited Away Characters Page
+   ============================================ */
+
+:root {
+    --header-h: 100px;
+    --gold: #E2C275;
+}
+
+.split-layout {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - var(--header-h));
+    margin-top: var(--header-h);
+    position: relative;
+    background: #000;
+}
+
+/* LEFT: Fixed image panel with padding and frame */
+.split-left {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    width: 45%;
+    height: calc(100vh - var(--header-h));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.image-frame {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px; /* Matching the screenshot */
+    background: #000;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps the frame filled */
+    object-position: center;
+    display: block;
+    transition: opacity 0.4s ease;
+}
+
+/* RIGHT: Scrolling content */
+.split-right {
+    margin-left: 45%;
+    width: 55%;
+    padding: 100px 80px;
+    box-sizing: border-box;
+    background: #010101;
+}
+
+.content-section {
+    min-height: 80vh; /* Ensures scrolling triggers observer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid rgba(226, 194, 117, 0.08);
+}
+
+/* Typography matching your requested style */
+.tag { font-family: 'Lustria', serif; font-size: 12px; letter-spacing: 4px; color: var(--gold); margin-bottom: 20px; display: block; }
+h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; margin-bottom: 30px; color: #fff; }
+h1 { font-size: 3.5rem; color: var(--gold); }
+p { font-family: 'Lustria', serif; font-size: 16px; line-height: 1.9; color: rgba(255, 255, 255, 0.65); max-width: 500px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .split-left { position: relative; width: 100%; height: 50vh; padding: 20px; }
+    .split-right { margin-left: 0; width: 100%; padding: 40px 24px; }
+}

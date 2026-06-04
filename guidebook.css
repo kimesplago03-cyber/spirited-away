@@ -1,0 +1,349 @@
+/* ============================================
+   guidebook.css — Spirited Away Spirit World Guidebook
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Lustria&display=swap');
+
+/* ── Base Reset ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Lustria', serif;
+}
+
+/* ── Header ── */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(226, 194, 117, 0.1);
+}
+
+.logo a {
+    display: block;
+    line-height: 0;
+}
+
+.main-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ── Menu Button ── */
+.menu-btn {
+    background: none;
+    border: none;
+    color: #E2C275;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu-btn:hover {
+    transform: scale(1.1);
+    color: #ffffff;
+}
+
+/* ── Side Menu ── */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    height: 100%;
+    background: #000;
+    z-index: 1002;
+    padding: 90px 40px 40px;
+    transition: right 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #A7373F;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.menu-links a {
+    font-family: 'Lustria', serif;
+    display: block;
+    font-size: 20px;
+    color: #E2C275;
+    text-decoration: none;
+    margin-bottom: 28px;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.menu-links a:hover {
+    color: #A7373F;
+    padding-left: 10px;
+}
+
+/* ── Overlay ── */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1001;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ── Hero Section ── */
+.guide-hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+    margin-top: 80px; /* offset fixed header */
+}
+
+.guide-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(226, 194, 117, 0.05) 0%,
+        transparent 50%,
+        rgba(167, 55, 63, 0.05) 100%
+    );
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-text .category {
+    display: block;
+    font-family: 'Lustria', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #E2C275;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.7;
+}
+
+.hero-text h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.hero-text p {
+    font-family: 'Lustria', serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 1px;
+}
+
+/* ── Guide Content Area ── */
+.guide-content {
+    padding: 80px 0;
+    background-color: #050505;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+/* ── Individual Guide Item ── */
+.guide-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    width: 100%;
+}
+
+.guide-item.reverse {
+    flex-direction: row-reverse;
+}
+
+/* ── Text Info Block ── */
+.guide-info {
+    flex: 1;
+}
+
+.guide-info .chapter {
+    color: #E2C275;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.guide-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.15;
+}
+
+.guide-info p {
+    font-family: 'Lustria', serif;
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 480px;
+}
+
+/* ── Glow Box (symbol placeholder) ── */
+.guide-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glow-box {
+    width: 100%;
+    max-width: 350px;
+    height: 420px;
+    border: 1px solid rgba(226, 194, 117, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: #E2C275;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.5s ease, text-shadow 0.5s ease, color 0.5s ease;
+}
+
+.guide-item:hover .glow-box {
+    border-color: rgba(226, 194, 117, 0.6);
+    color: #fff;
+    text-shadow: 0 0 12px rgba(226, 194, 117, 0.8);
+}
+
+/* ── Footer ── */
+.footer {
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(226, 194, 117, 0.1);
+    color: #999;
+    background: #050505;
+    font-family: 'Lustria', serif;
+}
+
+/* ── Page Transition ── */
+.smooth-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 1;
+    visibility: visible;
+    will-change: opacity;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.page-loaded .smooth-fade {
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.page-exiting .smooth-fade {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .guide-item,
+    .guide-item.reverse {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .glow-box {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .container {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-header {
+        padding: 0 20px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+}
